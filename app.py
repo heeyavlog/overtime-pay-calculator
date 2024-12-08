@@ -133,7 +133,7 @@ def calculate_overtime_pay():
         st.markdown('---')
         st.markdown('''
             ##### 💻 개발자 정보
-            - 블로그: [개발하는 나무](https://lzhakko.tistory.com/)
+            - 더 많은 정보는 : [리즈의 일상백과](https://lzhakko.tistory.com/)
         ''')
 
 
