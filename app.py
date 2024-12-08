@@ -36,6 +36,17 @@ def format_number(number):
     return f"{int(number):,}원"
 
 
+def calculate_basic_overtime_pay(hourly_wage, overtime_hours, overtime_rate):
+    """기본 야근 수당 계산"""
+    return hourly_wage * overtime_hours * overtime_rate
+
+
+def calculate_overtime_pay_over_52h(hourly_wage, weekly_overtime_hours,
+                                   overtime_rate_52h):
+    """주 52시간 초과 야근 수당 계산"""
+    return hourly_wage * weekly_overtime_hours * overtime_rate_52h
+
+
 def calculate_overtime_pay():
     st.title('🌙 야근 수당 계산기')
     st.markdown(
@@ -84,9 +95,10 @@ def calculate_overtime_pay():
 
     if st.button('계산하기', use_container_width=True):
         # 야근 수당 계산
-        overtime_pay = hourly_wage * overtime_hours * overtime_rate
+        overtime_pay = calculate_basic_overtime_pay(hourly_wage, overtime_hours, overtime_rate)
+
         if apply_52h_rule:
-            overtime_pay_52h = hourly_wage * weekly_overtime_hours * overtime_rate_52h
+            overtime_pay_52h = calculate_overtime_pay_over_52h(hourly_wage, weekly_overtime_hours, overtime_rate_52h)
             total_overtime_pay = overtime_pay + overtime_pay_52h
         else:
             total_overtime_pay = overtime_pay
@@ -116,6 +128,13 @@ def calculate_overtime_pay():
             - 실제 야근 수당은 회사 정책, 근로 계약, 관련 법규에 따라 달라질 수 있습니다.
             - 정확한 금액은 회사 급여 담당자나 노무사와 상담하시기 바랍니다.
             ''')
+
+    # 블로그 링크 정보 추가
+    st.markdown('---')
+    st.markdown('''
+        ##### 💻 개발자 정보
+        - 블로그: [개발하는 나무](https://lzhakko.tistory.com/)
+    ''')
 
 
 if __name__ == '__main__':
