@@ -129,12 +129,12 @@ def calculate_overtime_pay():
             - 정확한 금액은 회사 급여 담당자나 노무사와 상담하시기 바랍니다.
             ''')
 
-    # 블로그 링크 정보 추가
-    st.markdown('---')
-    st.markdown('''
-        ##### 💻 개발자 정보
-        - 블로그: [개발하는 나무](https://lzhakko.tistory.com/)
-    ''')
+# 블로그 링크 정보 추가
+        st.markdown('---')
+        st.markdown('''
+            ##### 💻 개발자 정보
+            - 블로그: [개발하는 나무](https://lzhakko.tistory.com/)
+        ''')
 
 
 if __name__ == '__main__':
